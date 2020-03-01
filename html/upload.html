@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.4.1/core.js"></script> -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    
+    <h1>新增奖品:</h1>
+    <form action="http://localhost:8000/api/prize/add" enctype="multipart/form-data" method="post" id='addPrize'>
+        上传奖品图片:<input type="file" name="prize_img" class='img_file' /><br />
+        图片名称: <input type='text' name="img_name" /><br />
+        奖品名称: <input type='text' name="prize_name" /><br />
+        库存: <input type="text" name="stock"><br />
+        每天最多中奖个数:<input type="text" name="max_per_day"><br />
+        中奖几率(min:0, max:1000):<input type="text" name="probability"><br />
+        是否为大奖(大奖填1, 非大奖填0, 玩家抽中大奖后都不会再抽中):<input type="text" name="big_prize"><br />
+        <input type="submit" value="Submit" class="add">
+        <!-- <input type="button" value="Submit" class="add"> -->
+    </form>
+    <h1>修改奖品:</h1>
+    <form action="http://localhost:8000/api/prize/update" enctype="multipart/form-data" method="post" id='updatePrize'>
+        奖品id:<input type='text' name="prize_id" /><br />
+        上传奖品图片:<input type="file" name="prize_img" class='img_file' /><br />
+        图片名称: <input type='text' name="img_name" /><br />
+        奖品名称: <input type='text' name="prize_name" /><br />
+        库存: <input type="text" name="stock"><br />
+        每天最多中奖个数:<input type="text" name="max_per_day"><br />
+        中奖几率(min:0, max:1000):<input type="text" name="probability"><br />
+        是否为大奖(大奖填1, 非大奖填0, 玩家抽中大奖后都不会再抽中):<input type="text" name="big_prize"><br />
+        是否激活(激活1, 非激活0, 设置为非激活将不会在抽奖结果中出现):<input type="text" name="status"><br />
+        <input type="submit" value="Submit" class="add">
+        <!-- <input type="button" value="Submit" class="add"> -->
+    </form>
+    <!-- <script>
+        let oSubmit = document.querySelector('.add');
+        let img_file = document.querySelector('.img_file');
+
+        oSubmit.addEventListener('click', () => {
+            let oForm = document.querySelector('#addPrize');
+            let data = new FormData(oForm);
+            // console.log(data.get('prize_img'));
+            // console.log(img_file.files);
+            $.ajax({
+                "url": "http://localhost:8000/api/prize/add",
+                "method": "POST",
+                "data":data,
+                "contentType": false,
+                processData: false,
+                "success": function (data) {
+                    console.log(data);
+                },
+                "error": function (xhr, errText, err) {
+                    console.log(xhr, errText, err);
+
+                },
+                "complete": function () {
+                    console.log('我是请求完成后执行');
+
+                }
+            });
+
+
+        });
+    </script> -->
+</body>
+
+</html>
